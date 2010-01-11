@@ -2,3 +2,7 @@ $ cat .gitignore
 
 # Can ignore specific files
 authData.py
+
+# Use wildcards as well
+*.pyc
+
