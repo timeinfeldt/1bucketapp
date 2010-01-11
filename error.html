@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}A bucket of fail{% endblock %}
+
+{% block contentClass %}detail{% endblock contentClass %}
+
+{% block content %}
+<div id="main" class="grid_8">
+<h2>{{error}}</h2>
+<a href="/">Go home.</a>
+</div>
+
+<div id="sidebar" class="grid_4">
+</div>
+<div class="clear"></div>
+
+{% endblock content %}

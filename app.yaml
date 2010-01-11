@@ -1,0 +1,24 @@
+application: 1bucketapp
+version: 4
+runtime: python
+api_version: 1
+
+handlers:
+- url: /favicon.ico
+  static_files: css/img/favicon.ico
+  upload: css/img/favicon.ico
+
+- url: /css
+  static_dir: css
+
+- url: /js
+  static_dir: js
+
+- url: /facebox
+  static_dir: facebox
+
+- url: /.*
+  script: main.py
+  
+
+

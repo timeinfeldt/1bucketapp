@@ -1,0 +1,5 @@
+cron:
+- description: fetch routine
+  url: /fetch
+  schedule: every 10 minutes
+

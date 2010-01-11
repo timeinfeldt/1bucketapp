@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}{{bucket.title}} on 1bucket{% endblock %}
+
+{% block contentClass %}detail{% endblock contentClass %}
+
+{% block content %}
+
+<div id="main" class="grid_8 ">
+<h1>{{ bucket.title }}</h1>
+<ol id="tweetList">
+{% for tweet in tweets %}
+<li>
+<h2>{{ tweet.headline }}</h2>
+<div>{{ tweet.embeddable }}</div>
+<span class="meta">{{ tweet.date|naturalTimeDifference }} by <a href="http://twitter.com/{{ tweet.author.screenName }}">{{tweet.author.name}}</a></span>
+</li>
+{% endfor %}
+</ol>
+</div>
+
+<div id="sidebar" class="grid_4 ">
+<h3>People in this Bucket</h3>
+<ul id="authorList">
+{% for author in authors %}
+<li><a href="http://twitter.com/{{author.screenName}}" title="{{author.name}}"><img src="{{author.img}}" /></a></li>
+{% endfor %}
+</ul>
+</div>
+<div class="clear"></div>
+{% endblock content %}

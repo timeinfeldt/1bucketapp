@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}1bucket{% endblock %}
+
+{% block contentClass %}front{% endblock contentClass %}
+
+{% block content %}
+
+<div id="tagline" class="grid_12">
+<img src="/css/img/bucketbird.png" alt="BucketBird" title="Bob the Bucket Bird" />
+<h1>One bucket to rule them all.</h1>
+<p>Create collaborative buckets for your tweets. Collect what's awesome in one place.</p>
+</div>
+
+<div class="grid_4 frontBlock">
+<h3>1. Create a Bucket</h3>
+<p>A bucket is a collaborative list. It combines tweets that are more or less related to a topic. Once a bucket is created, everyone with a Twitter account can contribute.</p>
+<a rel="facebox"  href="#createBucket">Create a bucket now!</a>
+</div>
+
+<div class="grid_4 frontBlock">
+<h3>2. Tweet Away</h3>
+<p>In order to appear on 1bucket, tweets need to be written in a certain way. The simple syntax ensures that 1bucket can work its magic and recognise the content of a tweet.</p>
+<a rel="facebox"  href="#showSyntax">See how it works!</a>
+</div>
+
+<div class="grid_4 frontBlock">
+<h3>3. View Buckets</h3>
+<p>All buckets are open; no login or registration is required. Use 1bucket to store your personal findings or to view the material that other users gather about a subject.</p>
+<a rel="facebox" href="#viewBucket">View a bucket!</a>
+</div>
+
+<div id="createBucket" style="display:none">
+<form action="/new" method="post" id="createBucketForm">
+<h2>What's the title of your new bucket? One word, please.</h2>
+<div><input type="text" class="input" name="title" /></div>
+<div><input type="submit" class="submit" value="Create" /></div>
+</form>
+<div class="clear"></div>
+</div>
+
+<div id="showSyntax" style="display:none">
+<h2>How 1bucket works</h2>
+<img src="/css/img/syntax.png" title="1bucket Syntax Eample" alt="@1b bucket headline link" />
+<p>In order to add something to a bucket, your tweets need to contain some key elements:</p>
+<ol>
+<li><em>@1b</em> The tweet must begin with @1b.</li>
+<li><em>Bucket</em> The first word after @1b defines the target bucket.</li>
+<li><em>Description</em> Everything after the bucket name will appear as headline for your content.</li>
+<li><em>URL</em> The content that you want to add to the bucket. 1bucket recognises a list of content types and automatically embeds them in the bucket.</li>
+</ol>
+<p><a href="/buckets/funnycats">See the result of the example above.</a></p>
+</div>
+
+<div id="viewBucket" style="display:none">
+<h2>Previously created buckets</h2>
+<ol id="bucketList">
+{% for bucket in buckets %}
+<li><a href="/buckets/{{bucket.urlTitle}}">{{ bucket.title }}</a></li>
+{% endfor %}
+</ol>
+<div class="clear"></div>
+</div>
+                
+{% endblock content %}
